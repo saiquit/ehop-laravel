@@ -22,4 +22,13 @@ class Product extends Model
     {
         return $this->hasMany(Attribute::class);
     }
+    /**
+     * The orders that belong to the Product
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function orders()
+    {
+        return $this->belongsToMany(Order::class)->withTimestamps();
+    }
 }

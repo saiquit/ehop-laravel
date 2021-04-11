@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use Illuminate\Support\Str;
 class ProductFactory extends Factory
 {
     /**
@@ -21,10 +21,10 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->word;
+        $title = $this->faker->sentences(1, true);
         return [
             'title' => $title,
-            'slug' => $title,
+            'slug' => Str::slug($title),
             'description' => $this->faker->sentences(3, true),
             'price' => $this->faker->randomNumber(2),
             'rating' => $this->faker->numberBetween(1, 5),

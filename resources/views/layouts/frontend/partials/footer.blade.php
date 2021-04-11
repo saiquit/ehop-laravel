@@ -5,11 +5,7 @@
                 <h3><i class="fa fa-envelope"></i>Sign up to Newsletter</h3>
             </div>
             <div class="col-lg-5 col-md-7 col-sm-12 col-xs-12">
-                <form
-                    class="ps-subscribe__form"
-                    action="do_action"
-                    method="post"
-                >
+                <form class="ps-subscribe__form" action="do_action" method="post">
                     <input class="form-control" type="text" placeholder="" />
                     <button>Sign up now</button>
                 </form>
@@ -22,33 +18,25 @@
         </div>
     </div>
 </div>
-<div
-    class="ps-footer bg--cover"
-    data-background="images/background/parallax.jpg"
->
+<div class="ps-footer bg--cover" data-background="assets/frontend/images/background/parallax.jpg">
     <div class="ps-footer__content">
         <div class="ps-container">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <aside class="ps-widget--footer ps-widget--info">
                         <header>
-                            <a class="ps-logo" href="index.html"
-                                ><img src="images/logo-white.png" alt=""
-                            /></a>
+                            <a class="ps-logo" href="index.html"><img src="assets/frontend/images/logo-white.png"
+                                    alt="" /></a>
                             <h3 class="ps-widget__title">Address Office 1</h3>
                         </header>
                         <footer>
                             <p>
-                                <strong
-                                    >460 West 34th Street, 15th floor, New
-                                    York</strong
-                                >
+                                <strong>460 West 34th Street, 15th floor, New
+                                    York</strong>
                             </p>
                             <p>
                                 Email:
-                                <a href="mailto:support@store.com"
-                                    >support@store.com</a
-                                >
+                                <a href="mailto:support@store.com">support@store.com</a>
                             </p>
                             <p>Phone: +323 32434 5334</p>
                             <p>Fax: ++323 32434 5333</p>
@@ -62,16 +50,12 @@
                         </header>
                         <footer>
                             <p>
-                                <strong
-                                    >PO Box 16122 Collins Victoria 3000
-                                    Australia</strong
-                                >
+                                <strong>PO Box 16122 Collins Victoria 3000
+                                    Australia</strong>
                             </p>
                             <p>
                                 Email:
-                                <a href="mailto:support@store.com"
-                                    >support@store.com</a
-                                >
+                                <a href="mailto:support@store.com">support@store.com</a>
                             </p>
                             <p>Phone: +323 32434 5334</p>
                             <p>Fax: ++323 32434 5333</p>

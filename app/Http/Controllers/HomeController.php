@@ -32,4 +32,16 @@ class HomeController extends Controller
         }])->get();
         return view('welcome', compact('categories', 'featured'));
     }
+    public function checkout()
+    {
+        return view('checkout');
+    }
+    public function cart()
+    {
+        return view('cart');
+    }
+    public function thankYou()
+    {
+        return view('thankyou');
+    }
 }

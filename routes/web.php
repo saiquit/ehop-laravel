@@ -18,13 +18,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('product/{slug}', 'App\Http\Controllers\ProductController@productDetails')->name('product.details');
 Route::get('products', 'App\Http\Controllers\ProductController@index')->name('product.index');
+Route::get('checkout', [HomeController::class, 'checkout'])->name('checkout')->middleware('auth');
+Route::get('cart', [HomeController::class, 'cart'])->name('cart');
+Route::get('thank-you', [HomeController::class, 'thankYou'])->name('thankYou');
 
 Route::group([
     'prefix' => 'order',
     'as' => 'order.',
     'namespace' => 'App\Http\Controllers',
 ], function () {
+    Route::post('store-order', 'OrderController@store')->name('store');
     Route::post('add-cart/{product}', 'OrderController@addToCart')->name('addtocart');
+    Route::post('update-cart/{product}', 'OrderController@updateCart')->name('updateCart');
+    Route::post('remove-cart/{product}', 'OrderController@removeItemFromCart')->name('removeFromCart');
 });
 
 Route::group([
@@ -34,6 +40,7 @@ Route::group([
     'middleware' => ['auth', 'admin']
 ], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::resource('order', 'OrderController');
     Route::resource('product', 'ProductController');
     Route::resource('category', 'CategoryController');
 });
@@ -45,6 +52,7 @@ Route::group([
     'middleware' => ['auth', 'customer']
 ], function () {
     Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::resource('order', 'OrdersController');
 });
 
 

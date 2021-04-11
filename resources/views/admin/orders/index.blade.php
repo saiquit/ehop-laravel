@@ -9,28 +9,29 @@
 <div class="pd-ltr-20 xs-pd-20-10">
     <div class="card-box mb-30">
         <div class="pd-20">
-            <h4 class="text-blue h4">All Products ({{$products->count()}})</h4>
+            <h4 class="text-blue h4">All Orders ({{count($orders)}})</h4>
         </div>
         <div class="pb-20">
             <table class="table hover data-table-export nowrap">
                 <thead>
                     <tr>
                         <th class="table-plus datatable-nosort">Name</th>
-                        <th>Price</th>
-                        <th>Stock</th>
-                        <th>Description</th>
-                        <th>Start Date</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Orderd Date</th>
+                        <th>Status</th>
                         <th class="datatable-nosort">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($products as $product)
+                    @foreach ($orders as $order)
                     <tr>
-                        <td class="table-plus">{{$product['title']}}</td>
-                        <td>{{$product['price']}}</td>
-                        <td>{{$product['stock']}}</td>
-                        <td>{{Str::limit($product['description'], 20)}}</td>
-                        <td>{{$product['created_at']}}</td>
+                        <td class="table-plus">{{$order['first_name']}} {{$order['last_name']}}</td>
+                        <td>{{$order['phone_number']}}</td>
+                        <td>{{Str::limit($order['address'], 20)}}</td>
+                        {{-- <td>{{$order['status']}}</td> --}}
+                        <td>{{$order['created_at']->diffForHumans()}}</td>
+                        <td>Status</td>
                         <td>
                             <div class="dropdown">
                                 <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#"
@@ -38,10 +39,10 @@
                                     <i class="dw dw-more"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                    <a class="dropdown-item" href="{{ route('admin.product.show',  $product->id) }}"><i
+                                    <a class="dropdown-item" href="{{ route('customer.order.show',  $order->id) }}"><i
                                             class="dw dw-eye"></i> View</a>
-                                    <a class="dropdown-item" href="{{ route('admin.product.edit',  $product->id) }}"><i
-                                            class="dw dw-edit2"></i> Edit</a>
+                                    {{-- <a class="dropdown-item" href="{{ route('admin.product.edit',  $product->id) }}"><i
+                                        class="dw dw-edit2"></i> Edit</a>
                                     <a class="dropdown-item"
                                         onclick="document.getElementById('delete-form-{{$product->id}}').submit()"
                                         href="javascript:;"><i class="dw dw-delete-3"></i> Delete</a>
@@ -49,7 +50,7 @@
                                         id="delete-form-{{$product->id}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </div>
                         </td>
